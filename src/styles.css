@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --wallet-primary-color: #3498DB;
+    --wallet-secondary-color: #2ECC71;
+    --wallet-danger-color: #E74C3C;
+    --wallet-txt-dark-color: #333333;
+    --wallet-txt-light-color: #777777;
+    --wallet-background-color: #777777;
+}
+
+.bg-wallet-primary {
+    background-color: var(--wallet-primary-color);
+}

@@ -1,0 +1,9 @@
+#transactions-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#transactions-title {
+    margin-bottom: 0;
+}
