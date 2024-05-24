@@ -5,9 +5,17 @@
     --wallet-danger-color: #E74C3C;
     --wallet-txt-dark-color: #333333;
     --wallet-txt-light-color: #777777;
-    --wallet-background-color: #777777;
+    --wallet-background-color: #eeeeee;
 }
 
 .bg-wallet-primary {
     background-color: var(--wallet-primary-color);
+}
+
+.bg-wallet-light {
+    background-color: var(--wallet-background-color);
+}
+
+.txt-wallet-dark {
+    color: var(--wallet-txt-dark-color);
 }

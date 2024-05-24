@@ -1,0 +1,31 @@
+#popup-canva {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+#popup-new-card {
+    /* padding: 20px 5px; */
+    width: 300px;
+
+    background-color: var(--wallet-background-color);
+    border-radius: 5px;
+}
+
+.btn-line {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: end;
+    margin-top: 1rem;
+}
