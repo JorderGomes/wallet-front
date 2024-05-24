@@ -7,7 +7,7 @@
         Nova transação
     </button>
 </div>
-<table class="table">
+<table class="table" *ngIf="transactions.length > 0; else noTransactions">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -20,32 +20,29 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Aluguel</td>
-            <td>R$ 1000,00</td>
-            <td>Custo</td>
-            <td>Contas</td>
-            <td><button type="button" class="btn btn-sm btn-secondary">Editar</button></td>
-            <td><button type="button" class="btn btn-sm btn-danger">Remover</button></td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Salário</td>
-            <td>R$ 3000,00</td>
-            <td>Receita</td>
-            <td>Trabalho</td>
-            <td><button type="button" class="btn btn-sm btn-secondary">Editar</button></td>
-            <td><button type="button" class="btn btn-sm btn-danger">Remover</button></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Restaurante</td>
-            <td>R$ 80,00</td>
-            <td>Custo</td>
-            <td>Alimentação</td>
-            <td><button type="button" class="btn btn-sm btn-secondary">Editar</button></td>
-            <td><button type="button" class="btn btn-sm btn-danger">Remover</button></td>
+        <tr *ngFor="let transaction of transactions">
+            <th scope="row">{{ transaction.id }}</th>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.value }}</td>
+            <td>{{ transaction.flux }}</td>
+            <td>{{ transaction.tag }}</td>
+            <td>
+                <button type="button" class="btn btn-sm btn-secondary">
+                    Editar
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-sm btn-danger" (click)="removeHandler(transaction.id)">
+                    Remover
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>
+<ng-template #noTransactions>
+    <div id="transactions-head" class="alert bg-wallet-light" role="alert">
+        <h5 id="transactions-title" class="txt-wallet-dark">
+            Ainda não há registros
+        </h5>
+    </div>
+</ng-template>

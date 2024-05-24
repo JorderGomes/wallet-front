@@ -1,0 +1,193 @@
+{
+  "registers": [
+    {
+      "id": "1",
+      "description": "Salário de Maio",
+      "value": 5000,
+      "flux": "RENDA",
+      "tag": "Salário"
+    },
+    {
+      "id": "2",
+      "description": "Aluguel de Maio",
+      "value": 1200,
+      "flux": "DESPESA",
+      "tag": "Aluguel"
+    },
+    {
+      "id": "3",
+      "description": "Compra no supermercado",
+      "value": 350.45,
+      "flux": "DESPESA",
+      "tag": "Alimentação"
+    },
+    {
+      "id": "4",
+      "description": "Freelance de design gráfico",
+      "value": 800,
+      "flux": "RENDA",
+      "tag": "Freelance"
+    },
+    {
+      "id": "7",
+      "description": "Reembolso de viagem",
+      "value": 150,
+      "flux": "RENDA",
+      "tag": "Reembolso"
+    },
+    {
+      "id": "8",
+      "description": "Compra de roupas",
+      "value": 400,
+      "flux": "DESPESA",
+      "tag": "Compras"
+    },
+    {
+      "id": "9",
+      "description": "Investimento em ações",
+      "value": 1000,
+      "flux": "DESPESA",
+      "tag": "Investimentos"
+    },
+    {
+      "id": "10",
+      "description": "Venda de itens usados",
+      "value": 200,
+      "flux": "RENDA",
+      "tag": "Vendas"
+    },
+    {
+      "id": "11",
+      "description": "Restaurante",
+      "value": 80,
+      "flux": "DESPESA",
+      "tag": "Alimentação"
+    },
+    {
+      "id": "12",
+      "description": "Gasolina",
+      "value": 150,
+      "flux": "DESPESA",
+      "tag": "Transporte"
+    },
+    {
+      "id": "13",
+      "description": "Bônus",
+      "value": 500,
+      "flux": "RENDA",
+      "tag": "Salário"
+    },
+    {
+      "id": "14",
+      "description": "Eletricidade",
+      "value": 120,
+      "flux": "DESPESA",
+      "tag": "Utilidades"
+    },
+    {
+      "id": "15",
+      "description": "Venda de itens usados",
+      "value": 300,
+      "flux": "RENDA",
+      "tag": "Vendas"
+    },
+    {
+      "id": "16",
+      "description": "Compras online",
+      "value": 250,
+      "flux": "DESPESA",
+      "tag": "Lazer"
+    },
+    {
+      "id": "17",
+      "description": "Curso online",
+      "value": 200,
+      "flux": "DESPESA",
+      "tag": "Educação"
+    },
+    {
+      "id": "18",
+      "description": "Manutenção do carro",
+      "value": 400,
+      "flux": "DESPESA",
+      "tag": "Transporte"
+    },
+    {
+      "id": "19",
+      "description": "Consultoria",
+      "value": 1000,
+      "flux": "RENDA",
+      "tag": "Freelance"
+    },
+    {
+      "id": "20",
+      "description": "Farmácia",
+      "value": 50,
+      "flux": "DESPESA",
+      "tag": "Saúde"
+    },
+    {
+      "id": "21",
+      "description": "Show",
+      "value": 300,
+      "flux": "DESPESA",
+      "tag": "Lazer"
+    },
+    {
+      "id": "22",
+      "description": "Reembolso",
+      "value": 100,
+      "flux": "RENDA",
+      "tag": "Reembolso"
+    },
+    {
+      "id": "23",
+      "description": "Presentes",
+      "value": 150,
+      "flux": "DESPESA",
+      "tag": "Lazer"
+    },
+    {
+      "id": "24",
+      "description": "Investimento em ações",
+      "value": 800,
+      "flux": "DESPESA",
+      "tag": "Investimentos"
+    },
+    {
+      "id": "25",
+      "description": "Freelance extra",
+      "value": 700,
+      "flux": "RENDA",
+      "tag": "Freelance"
+    },
+    {
+      "id": "26",
+      "description": "Pagamento de empréstimo",
+      "value": 1000,
+      "flux": "DESPESA",
+      "tag": "Finanças"
+    },
+    {
+      "id": "27",
+      "description": "Juros de poupança",
+      "value": 50,
+      "flux": "RENDA",
+      "tag": "Investimentos"
+    },
+    {
+      "id": "28",
+      "description": "Contas diversas",
+      "value": 200,
+      "flux": "DESPESA",
+      "tag": "Utilidades"
+    },
+    {
+      "id": "30",
+      "description": "Manutenção de casa",
+      "value": 300,
+      "flux": "DESPESA",
+      "tag": "Moradia"
+    }
+  ]
+}
