@@ -7,3 +7,15 @@
 #transactions-title {
     margin-bottom: 0;
 }
+
+#resumes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 1.5rem 0;
+}
+
+#resumes app-card-resume {
+    width: 33%;
+}

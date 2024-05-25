@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:wallet-front": "node dist/wallet-front/server/server.mjs",
-    "server":"json-server --watch db.json"
+    "server": "json-server --watch db.json"
   },
   "private": true,
   "dependencies": {

@@ -7,6 +7,11 @@
         Nova transação
     </button>
 </div>
+<div id="resumes" class="card-grid">
+    <app-card-resume [cssClass]="'txt-wallet-danger'" [title]="'Gasto'" [value]="outcomeResume"></app-card-resume>
+    <app-card-resume [cssClass]="'txt-wallet-primary'" [title]="'Balanço'" [value]="balanceResume"></app-card-resume>
+    <app-card-resume [cssClass]="'txt-wallet-secondary'" [title]="'Renda'" [value]="incomeResume"></app-card-resume>
+</div>
 <table class="table" *ngIf="transactions.length > 0; else noTransactions">
     <thead>
         <tr>

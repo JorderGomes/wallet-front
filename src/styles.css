@@ -19,3 +19,15 @@
 .txt-wallet-dark {
     color: var(--wallet-txt-dark-color);
 }
+
+.txt-wallet-danger {
+    color: var(--wallet-danger-color);
+}
+
+.txt-wallet-primary {
+    color: var(--wallet-primary-color);
+}
+
+.txt-wallet-secondary {
+    color: var(--wallet-secondary-color);
+}

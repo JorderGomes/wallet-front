@@ -36,34 +36,6 @@
       "tag": "Reembolso"
     },
     {
-      "id": "8",
-      "description": "Compra de roupas",
-      "value": 400,
-      "flux": "DESPESA",
-      "tag": "Compras"
-    },
-    {
-      "id": "9",
-      "description": "Investimento em ações",
-      "value": 1000,
-      "flux": "DESPESA",
-      "tag": "Investimentos"
-    },
-    {
-      "id": "10",
-      "description": "Venda de itens usados",
-      "value": 200,
-      "flux": "RENDA",
-      "tag": "Vendas"
-    },
-    {
-      "id": "11",
-      "description": "Restaurante",
-      "value": 80,
-      "flux": "DESPESA",
-      "tag": "Alimentação"
-    },
-    {
       "id": "12",
       "description": "Gasolina",
       "value": 150,
@@ -71,25 +43,11 @@
       "tag": "Transporte"
     },
     {
-      "id": "13",
-      "description": "Bônus",
-      "value": 500,
-      "flux": "RENDA",
-      "tag": "Salário"
-    },
-    {
       "id": "14",
       "description": "Eletricidade",
       "value": 120,
       "flux": "DESPESA",
       "tag": "Utilidades"
-    },
-    {
-      "id": "15",
-      "description": "Venda de itens usados",
-      "value": 300,
-      "flux": "RENDA",
-      "tag": "Vendas"
     },
     {
       "id": "16",
@@ -111,13 +69,6 @@
       "value": 400,
       "flux": "DESPESA",
       "tag": "Transporte"
-    },
-    {
-      "id": "19",
-      "description": "Consultoria",
-      "value": 1000,
-      "flux": "RENDA",
-      "tag": "Freelance"
     },
     {
       "id": "20",
