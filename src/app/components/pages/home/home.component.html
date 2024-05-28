@@ -34,12 +34,20 @@
                 <td>{{ transaction.flux }}</td>
                 <td>{{ transaction.tag }}</td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-secondary">
+                    <button 
+                    type="button" 
+                    class="btn btn-sm btn-secondary"
+                    (click)="editHandler(transaction)"
+                    >
                         Editar
                     </button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-sm btn-danger" (click)="removeHandler(transaction.id!)">
+                    <button 
+                    type="button" 
+                    class="btn btn-sm btn-danger" 
+                    (click)="removeHandler(transaction.id!)"
+                    >
                         Remover
                     </button>
                 </td>

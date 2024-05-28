@@ -28,5 +28,5 @@
 thead {
     position: sticky;
     top: 0;
-    z-index: 10; /* Para garantir que o cabeçalho fique acima do conteúdo */
+    z-index: 9; /* Para garantir que o cabeçalho fique acima do conteúdo */
 }

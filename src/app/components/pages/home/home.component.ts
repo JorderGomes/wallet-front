@@ -39,7 +39,7 @@ export class HomeComponent {
 
     this.transactions.forEach(item => {
       if (item.flux === "DESPESA") {
-        outcomeAccumulator += item.value;
+        outcomeAccumulator -= item.value;
       } else {
         incomeAccumulator += item.value;
       }
@@ -74,8 +74,11 @@ export class HomeComponent {
   }
 
   async createHandler(transaction: Transaction){
-    transaction.id = this.transactions.length;
-    await firstValueFrom(this.transactionService.createTransaction(transaction));
+    if (transaction.id){
+      await firstValueFrom(this.transactionService.editTransaction(transaction));
+    } else {
+      await firstValueFrom(this.transactionService.createTransaction(transaction));
+    }
     this.renderTransactions();
   }
 
@@ -85,8 +88,14 @@ export class HomeComponent {
     this.transactionService.remove(id).subscribe();
   }
 
+  editHandler(currentTransaction: Transaction){
+    this.handleShowPopup();
+    this.transactionService.setCurrentTransaction(currentTransaction);
+    
+  }
+
   handleShowPopup() {
-    this.popupService.toggleShowPopup();
+    this.popupService.setShowPopup(true);
     // console.log(this.popupService.showPopup);
   }
 
