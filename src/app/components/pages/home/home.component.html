@@ -1,3 +1,4 @@
+<app-popup (onSubmit)="createHandler($event)"></app-popup>
 <div id="transactions-head" class="alert bg-wallet-light" role="alert">
     <h5 id="transactions-title" class="txt-wallet-dark">Transações</h5>
     <button 
@@ -12,38 +13,40 @@
     <app-card-resume [cssClass]="'txt-wallet-primary'" [title]="'Balanço'" [value]="balanceResume"></app-card-resume>
     <app-card-resume [cssClass]="'txt-wallet-secondary'" [title]="'Renda'" [value]="incomeResume"></app-card-resume>
 </div>
-<table class="table" *ngIf="transactions.length > 0; else noTransactions">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Fluxo</th>
-            <th scope="col">Tag</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Remover</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let transaction of transactions">
-            <th scope="row">{{ transaction.id }}</th>
-            <td>{{ transaction.description }}</td>
-            <td>{{ transaction.value }}</td>
-            <td>{{ transaction.flux }}</td>
-            <td>{{ transaction.tag }}</td>
-            <td>
-                <button type="button" class="btn btn-sm btn-secondary">
-                    Editar
-                </button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-sm btn-danger" (click)="removeHandler(transaction.id)">
-                    Remover
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div id="table-container">
+    <table id="transaction-table" class="table" *ngIf="transactions.length > 0; else noTransactions">
+        <thead class="bg-wallet-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Fluxo</th>
+                <th scope="col">Tag</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Remover</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactions">
+                <th scope="row">{{ transaction.id }}</th>
+                <td>{{ transaction.description }}</td>
+                <td>{{ transaction.value }}</td>
+                <td>{{ transaction.flux }}</td>
+                <td>{{ transaction.tag }}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-secondary">
+                        Editar
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-danger" (click)="removeHandler(transaction.id!)">
+                        Remover
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <ng-template #noTransactions>
     <div id="transactions-head" class="alert bg-wallet-light" role="alert">
         <h5 id="transactions-title" class="txt-wallet-dark">

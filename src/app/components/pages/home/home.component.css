@@ -19,3 +19,14 @@
 #resumes app-card-resume {
     width: 33%;
 }
+
+#table-container {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Para garantir que o cabeçalho fique acima do conteúdo */
+}

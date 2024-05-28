@@ -4,25 +4,58 @@
             <h5 class="card-title text-center">Nova transação</h5>
         </div>
         <div class="card-body">
-            <form action="">
+            <form (ngSubmit)="submit()" [formGroup]="transactionForm" #formDir="ngForm">
+                <input type="hidden" name="" id="id">
                 <div class="form-group">
                     <label for="description">Descrição</label>
-                    <input type="text" class="form-control" id="description">
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="description"
+                        formControlName="description"
+                        required
+                    >
+                    <div *ngIf="description.invalid && formDir.submitted" class="validation-error">
+                        <p>A descrição é obrigatória</p>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="value">Valor</label>
-                    <input type="number" min="0" class="form-control" id="value">
+                    <input 
+                    type="number" 
+                    min="0" 
+                    class="form-control" 
+                    id="value"
+                    formControlName="value"
+                    required
+                >
+                <div *ngIf="value.invalid && formDir.submitted" class="validation-error">
+                    <p>O valor é obrigatório</p>
+                </div>
                 </div>
                 <div class="form-group">
                     <label for="flux">Fluxo</label>
-                    <select class="form-control" id="flux">
-                        <option>Despesa</option>
-                        <option>Renda</option>
+                    <select 
+                        class="form-control" 
+                        id="flux"
+                        formControlName="flux"
+                        required
+                    >
+                        <option value="DESPESA">Despesa</option>
+                        <option value="RENDA">Renda</option>
                     </select>
+                    <div *ngIf="flux.invalid && formDir.submitted" class="validation-error">
+                        <p>O fluxo é obrigatório</p>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="tags">Tag</label>
-                    <select class="form-control" id="tags">
+                    <label for="tag">Tag</label>
+                    <select 
+                        class="form-control" 
+                        id="tag"
+                        formControlName="tag"
+                        required
+                    >
                         <option>Salário</option>
                         <option>Aluguel</option>
                         <option>Alimentação</option>
@@ -32,13 +65,16 @@
                         <option>Lazer</option>
                         <option>Educação</option>
                     </select>
+                    <div *ngIf="tag.invalid && formDir.submitted" class="validation-error">
+                        <p>A tag é obrigatória</p>
+                    </div>
                 </div>
-                <div class="form-check d-flex">
+                <!-- <div class="form-check d-flex">
                     <input class="form-check-input" type="checkbox" value="" id="recurrent">
                     <label class="form-check-label flex-fill" for="recurrent">
                         Recorrente
                     </label>
-                </div>
+                </div> -->
                 <div class="btn-line">
                     <button type="button" (click)="hanldeHidePopup()" class="btn btn-secondary">Fechar</button>
                     <input type="submit" class="btn btn-primary" value="Salvar">

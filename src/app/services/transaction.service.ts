@@ -23,4 +23,8 @@ export class TransactionService {
     return this.http.delete<Transaction>(`${this.apiUrl}/${id}`);
   }
 
+  createTransaction(transaction: Transaction): Observable<Transaction> {
+    return this.http.post<Transaction>(this.apiUrl, transaction);
+  }
+
 }

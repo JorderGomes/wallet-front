@@ -3,7 +3,7 @@ import { PopupService } from '../../../services/popup.service';
 import { TransactionService } from '../../../services/transaction.service';
 import { Transaction } from '../../../Transaction';
 import { environment } from '../../../../environments/environment';
-
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -73,6 +73,12 @@ export class HomeComponent {
     this.renderTransactions();
   }
 
+  async createHandler(transaction: Transaction){
+    transaction.id = this.transactions.length;
+    await firstValueFrom(this.transactionService.createTransaction(transaction));
+    this.renderTransactions();
+  }
+
   removeHandler(id: number) {
     this.updateBalance(id);
     this.transactions = this.transactions.filter((r) => r.id !== id);
@@ -81,7 +87,7 @@ export class HomeComponent {
 
   handleShowPopup() {
     this.popupService.toggleShowPopup();
-    console.log(this.popupService.showPopup);
+    // console.log(this.popupService.showPopup);
   }
 
 }

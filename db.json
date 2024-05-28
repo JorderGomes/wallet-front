@@ -36,13 +36,6 @@
       "tag": "Reembolso"
     },
     {
-      "id": "12",
-      "description": "Gasolina",
-      "value": 150,
-      "flux": "DESPESA",
-      "tag": "Transporte"
-    },
-    {
       "id": "14",
       "description": "Eletricidade",
       "value": 120,
@@ -139,6 +132,13 @@
       "value": 300,
       "flux": "DESPESA",
       "tag": "Moradia"
+    },
+    {
+      "id": "31",
+      "description": "Doação",
+      "value": 5,
+      "flux": "DESPESA",
+      "tag": "Lazer"
     }
   ]
 }
