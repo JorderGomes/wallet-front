@@ -10,7 +10,7 @@
     {
       "id": "2",
       "description": "Aluguel de Maio",
-      "value": 1200,
+      "value": 1188,
       "flux": "DESPESA",
       "tag": "Aluguel"
     },
@@ -20,13 +20,6 @@
       "value": 350.45,
       "flux": "DESPESA",
       "tag": "Alimentação"
-    },
-    {
-      "id": "4",
-      "description": "Freelance de design gráfico",
-      "value": 800,
-      "flux": "RENDA",
-      "tag": "Freelance"
     },
     {
       "id": "7",
@@ -132,13 +125,6 @@
       "value": 300,
       "flux": "DESPESA",
       "tag": "Moradia"
-    },
-    {
-      "id": "31",
-      "description": "Doação",
-      "value": 5,
-      "flux": "DESPESA",
-      "tag": "Lazer"
     }
   ]
 }
