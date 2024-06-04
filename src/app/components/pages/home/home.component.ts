@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { PopupService } from '../../../services/popup.service';
-import { TransactionService } from '../../../services/transaction.service';
-import { Transaction } from '../../../Transaction';
-import { environment } from '../../../../environments/environment';
 import { firstValueFrom } from 'rxjs';
+import { environment } from '../../../../environments/environment';
+import { Transaction } from '../../../interfaces/Transaction';
+import { PopupService } from '../../../services/popup/popup.service';
+import { TransactionService } from '../../../services/transaction/transaction.service';
 
 @Component({
   selector: 'app-home',
@@ -38,12 +38,15 @@ export class HomeComponent {
     let outcomeAccumulator = 0;
 
     this.transactions.forEach(item => {
-      if (item.flux === "DESPESA") {
-        outcomeAccumulator -= item.value;
+      if (item.flux === "GASTO") {
+        outcomeAccumulator += item.value;
       } else {
         incomeAccumulator += item.value;
       }
     });
+
+    
+    
 
     this.outcomeResume = `R$ ${(outcomeAccumulator * -1).toFixed(2)}` ;
     this.incomeResume = `R$ ${incomeAccumulator.toFixed(2)}`;
@@ -74,6 +77,8 @@ export class HomeComponent {
   }
 
   async createHandler(transaction: Transaction){
+    console.log("create Handler");
+    
     if (transaction.id){
       await firstValueFrom(this.transactionService.editTransaction(transaction));
     } else {

@@ -30,7 +30,7 @@
             <tr *ngFor="let transaction of transactions">
                 <th scope="row">{{ transaction.id }}</th>
                 <td>{{ transaction.description }}</td>
-                <td>{{ transaction.value }}</td>
+                <td>R$ {{ transaction.value }},00</td>
                 <td>{{ transaction.flux }}</td>
                 <td>{{ transaction.tag }}</td>
                 <td>

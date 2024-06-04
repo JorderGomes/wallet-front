@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { PopupService } from '../../services/popup.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Transaction } from '../../Transaction';
-import { Subscription, firstValueFrom } from 'rxjs';
-import { TransactionService } from '../../services/transaction.service';
+import { Subscription } from 'rxjs';
+import { Transaction } from '../../interfaces/Transaction';
+import { PopupService } from '../../services/popup/popup.service';
+import { TransactionService } from '../../services/transaction/transaction.service';
 
 @Component({
   selector: 'app-popup',
@@ -99,10 +99,10 @@ export class PopupComponent {
   }
 
   submit() {
+    console.log("Saving data");
     if (this.transactionForm.invalid) {
       return;
     }
-    console.log("Saving data");
     this.onSubmit.emit(this.transactionForm.value);
     this.transactionForm.reset();
     this.hanldeHidePopup();

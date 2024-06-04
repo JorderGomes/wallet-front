@@ -125,6 +125,41 @@
       "value": 300,
       "flux": "DESPESA",
       "tag": "Moradia"
+    },
+    {
+      "id": "",
+      "description": "Netflix",
+      "value": 1,
+      "flux": "RENDA",
+      "tag": "Lazer"
+    },
+    {
+      "id": "",
+      "description": "Netflix",
+      "value": 1,
+      "flux": "RENDA",
+      "tag": "Lazer"
+    },
+    {
+      "id": "",
+      "description": "Netflix",
+      "value": 62685000,
+      "flux": "RENDA",
+      "tag": "Lazer"
+    },
+    {
+      "id": null,
+      "description": "Netflix",
+      "value": 12,
+      "flux": "RENDA",
+      "tag": "Aluguel"
+    },
+    {
+      "id": "",
+      "description": "amazon",
+      "value": 23,
+      "flux": "RENDA",
+      "tag": "Compras"
     }
   ]
 }
