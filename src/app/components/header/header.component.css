@@ -1,0 +1,12 @@
+#container-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+#navbarNav {
+    flex-grow: unset;
+}
+
+.nav-link {
+    /* color: var(--wallet-txt-light-color); */
+}

@@ -1,3 +1,27 @@
-<nav class="navbar bg-wallet-primary">
+<!-- <nav class="navbar bg-wallet-primary">
     <span class="navbar-brand mb-0 h1">Wallet</span>
+</nav> -->
+<!-- 
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark border-bottom border-light">
+
+ -->
+<nav class="navbar navbar-expand-lg navbar-dark border-bottom border-light bg-wallet-primary">
+    <div id="container-nav" class="container">
+        <span class="navbar-brand logo text-light">Wallet</span>
+        <span id="menu-btn" class="navbar-toggler navbar-toggler-right collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span id="close-menu" class="my-1 mx-2 close">X</span>
+            <span id="open-menu" class="navbar-toggler-icon"></span>
+        </span>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link button-links active" routerLink="/" onclick="changeActiveLink(event)">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link button-links" routerLink="/dashboard" onclick="changeActiveLink(event)">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
