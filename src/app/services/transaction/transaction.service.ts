@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 // interface para transactions
-import { environment } from '../../environments/environment';
-import { Transaction } from '../Transaction';
+import { environment } from '../../../environments/environment';
+import { Transaction } from '../../interfaces/Transaction';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import { Transaction } from '../Transaction';
 export class TransactionService {
 
   private baseApiUrl:string = environment.baseApiUrl;
-  private apiUrl:string = `${this.baseApiUrl}/registers`;
+  private apiUrl:string = `${this.baseApiUrl}/transactions`;
   
   private currentTransactionSubject = new BehaviorSubject<Transaction | null>(null);
   currentTransaction$ = this.currentTransactionSubject.asObservable();
@@ -37,6 +37,8 @@ export class TransactionService {
   }
 
   createTransaction(transaction: Transaction): Observable<Transaction> {
+    console.log("create Transaction");
+    
     return this.http.post<Transaction>(this.apiUrl, transaction);
   }
 
