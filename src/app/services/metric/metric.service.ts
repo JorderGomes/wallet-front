@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { CostsByKey } from '../../interfaces/costs-by-key';
+// import { CostsByKey } from '../../interfaces/costs-by-key';
+import { Response } from '../../interfaces/response';
 import { Transaction } from '../../interfaces/Transaction';
 import { PercentualIncomeCosts } from '../../interfaces/percentual-income-costs';
 
@@ -17,28 +18,34 @@ export class MetricService {
   constructor(private http: HttpClient) { }
 
   // todo: custos por tag
-  getCostsByKey(): Observable<CostsByKey[]>{
+  getCostsByTag(): Observable<Response>{
     const url = `${this.apiUrl}/costs-by-tag`;
-    return this.http.get<CostsByKey[]>(url);
-  }
-
-  // todo: custos mais caros
-  getExpensiveCosts(): Observable<Transaction[]>{
-    const url = `${this.apiUrl}/expensive-costs`;
-    return this.http.get<Transaction[]>(url);
-  }
-
-  // todo: porcentagem de gastos e rendas
-  getPercentualIncomeCosts(): Observable<PercentualIncomeCosts[]>{
-    const url = `${this.apiUrl}/percentual-income-costs`;
-    return this.http.get<PercentualIncomeCosts[]>(url);
+    return this.http.get<Response>(url);
   }
 
   // todo: custos por mês
-  getCostsByMonth(): Observable<CostsByKey[]>{
+  getCostsByMonth(): Observable<Response>{
     const url = `${this.apiUrl}/costs-by-month`;
-    return this.http.get<CostsByKey[]>(url);
+    return this.http.get<Response>(url);
   }
+
+  // todo: custos mais caros
+  getExpensiveCosts(currentMonth: string): Observable<Transaction[]>{
+    const url = `${this.apiUrl}/expensive-costs`;
+    let params = new HttpParams();
+    params = params.append("year_month", currentMonth);
+    return this.http.get<Transaction[]>(url, { params });
+  }
+
+  // todo: porcentagem de gastos e rendas
+  getPercentualIncomeCosts(currentMonth: string): Observable<PercentualIncomeCosts>{
+    const url = `${this.apiUrl}/percentual-income-costs`;
+    let params = new HttpParams();
+    params = params.append("year_month", currentMonth);
+    return this.http.get<PercentualIncomeCosts>(url, { params });
+  }
+
+  
   
 
 }

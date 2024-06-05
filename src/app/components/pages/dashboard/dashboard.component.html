@@ -1,1 +1,49 @@
-<p>dashboard works!</p>
+<div class="content">
+    <div id="expsensive-costs" class="card col">
+        <div class="card-header text-center">
+            Expensive costs
+        </div>
+        <div class="card-body" *ngIf="expensiveCosts.length > 0; else noExpensiveCosts">
+            body
+        </div>
+        <ng-template #noExpensiveCosts class="card-body">
+            <p>Custos mais altos não encontrados!</p>
+        </ng-template>
+    </div>
+
+    <div id="percent-income-costs" class="card col">
+        <div class="card-header text-center">
+            Percent income costs
+        </div>
+        <div class="card-body" *ngIf="percentIncomeCosts; else noPercentIncomeCosts">
+            body
+        </div>
+        <ng-template #noPercentIncomeCosts class="card-body">
+            <p>Porcentagens não encontradas!</p>
+        </ng-template>
+    </div>
+
+    <div id="costs-by-month" class="card col">
+        <div class="card-header text-center">
+            Costs by month
+        </div>
+        <div class="card-body" *ngIf="costsByMonth!.length > 0; else noCostsByMonth">
+            Body
+        </div>
+        <ng-template #noCostsByMonth class="card-body">
+            <p>Dados não encontrados!</p>
+        </ng-template>
+    </div>
+
+    <div id="costs-by-tag" class="card col">
+        <div class="card-header text-center">
+            Costs by tag
+        </div>
+        <div class="card-body" *ngIf="costsByTag!.length > 0; else noCostsByTag">
+            Body
+        </div>
+        <ng-template #noCostsByTag class="card-body">
+            <p>Dados não encontrados!</p>
+        </ng-template>
+    </div>
+</div>
