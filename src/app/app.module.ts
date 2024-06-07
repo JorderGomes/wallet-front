@@ -11,6 +11,7 @@ import { PopupComponent } from './components/popup/popup.component';
 import { CardResumeComponent } from './components/card-resume/card-resume.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

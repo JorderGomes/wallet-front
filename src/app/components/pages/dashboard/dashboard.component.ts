@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { Transaction } from '../../../interfaces/Transaction';
 import { PercentualIncomeCosts } from '../../../interfaces/percentual-income-costs';
 import { MetricService } from '../../../services/metric/metric.service';
 import { CostsByKey } from '../../../interfaces/costs-by-key';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent {
+export class DashboardComponent  {
 
   expensiveCosts: Transaction[] = [];
   percentIncomeCosts: PercentualIncomeCosts | null = null;
@@ -21,7 +22,12 @@ export class DashboardComponent {
 
   ngOnInit(): void {
     this.getMetrics();
+
+    
+
   }
+
+  
 
   getMetrics() {
 
@@ -36,7 +42,7 @@ export class DashboardComponent {
       console.log(item);
       this.costsByMonth = item.data;
     });
-    
+
     this.metricService.getPercentualIncomeCosts(this.currentMonth).subscribe((item) => {
       console.log(`3`);
       console.log(item);
@@ -59,3 +65,7 @@ export class DashboardComponent {
   }
 
 }
+function ViewChild(arg0: string, arg1: { static: boolean; }): (target: DashboardComponent, propertyKey: "elemento") => void {
+  throw new Error('Function not implemented.');
+}
+

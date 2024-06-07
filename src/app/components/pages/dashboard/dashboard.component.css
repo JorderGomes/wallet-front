@@ -10,7 +10,10 @@
     font-size: 16px;
 }
 
-
+.test {
+    margin: 0 1rem;
+    padding: .5rem;
+}
 
 @media only screen and (max-width: 480px) {
     .content {
