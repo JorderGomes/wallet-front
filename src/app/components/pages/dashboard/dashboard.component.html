@@ -1,12 +1,13 @@
-<canvas id="testeGrafico" class="card test">
-    
-</canvas>
+<div class="card test">
+    <canvas #barChart width="100%"></canvas>
+</div>
+
 <div class="content">
     <div id="expsensive-costs" class="card col">
         <div class="card-header text-center">
             Expensive costs
         </div>
-        <div class="card-body" *ngIf="expensiveCosts.length > 0; else noExpensiveCosts">
+        <div class="card-body" *ngIf="expensiveCosts != null && expensiveCosts.length > 0; else noExpensiveCosts">
             body
         </div>
         <ng-template #noExpensiveCosts class="card-body">
@@ -30,7 +31,7 @@
         <div class="card-header text-center">
             Costs by month
         </div>
-        <div class="card-body" *ngIf="costsByMonth!.length > 0; else noCostsByMonth">
+        <div class="card-body" *ngIf="costsByMonth != null && costsByMonth!.length > 0; else noCostsByMonth">
             Body
         </div>
         <ng-template #noCostsByMonth class="card-body">
@@ -42,7 +43,7 @@
         <div class="card-header text-center">
             Costs by tag
         </div>
-        <div class="card-body" *ngIf="costsByTag!.length > 0; else noCostsByTag">
+        <div class="card-body" *ngIf="costsByTag != null && costsByTag!.length > 0; else noCostsByTag">
             Body
         </div>
         <ng-template #noCostsByTag class="card-body">
