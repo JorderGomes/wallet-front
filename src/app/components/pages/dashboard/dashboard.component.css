@@ -10,6 +10,11 @@
     font-size: 16px;
 }
 
+.dashboard-chart{
+    width: 100%;
+    height: auto;
+}
+
 .test {
     margin: 0 1rem;
     padding: .5rem;

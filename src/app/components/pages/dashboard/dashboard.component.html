@@ -1,53 +1,49 @@
-<div class="card test">
-    <canvas #barChart width="100%"></canvas>
-</div>
-
 <div class="content">
     <div id="expsensive-costs" class="card col">
         <div class="card-header text-center">
             Expensive costs
         </div>
-        <div class="card-body" *ngIf="expensiveCosts != null && expensiveCosts.length > 0; else noExpensiveCosts">
+        <div class="card-body" >
             body
         </div>
-        <ng-template #noExpensiveCosts class="card-body">
-            <p>Custos mais altos não encontrados!</p>
-        </ng-template>
+        <div class="card-footer" *ngIf="expensiveCosts.length <= 0">
+            <p>Dados não encontrados!</p>
+        </div>
     </div>
 
     <div id="percent-income-costs" class="card col">
         <div class="card-header text-center">
             Percent income costs
         </div>
-        <div class="card-body" *ngIf="percentIncomeCosts; else noPercentIncomeCosts">
-            body
+        <div class="card-body" >
+            <canvas #pieChartPercent></canvas>
         </div>
-        <ng-template #noPercentIncomeCosts class="card-body">
-            <p>Porcentagens não encontradas!</p>
-        </ng-template>
+        <div class="card-footer" *ngIf="!percentIncomeCosts">
+            <p>Dados não encontrados!</p>
+        </div>
     </div>
 
     <div id="costs-by-month" class="card col">
         <div class="card-header text-center">
             Costs by month
         </div>
-        <div class="card-body" *ngIf="costsByMonth != null && costsByMonth!.length > 0; else noCostsByMonth">
-            Body
+        <div class="card-body">
+            <canvas #chartMonths></canvas>
         </div>
-        <ng-template #noCostsByMonth class="card-body">
+        <div class="card-footer" *ngIf="costsByMonth == null">
             <p>Dados não encontrados!</p>
-        </ng-template>
+        </div>
     </div>
 
     <div id="costs-by-tag" class="card col">
         <div class="card-header text-center">
             Costs by tag
         </div>
-        <div class="card-body" *ngIf="costsByTag != null && costsByTag!.length > 0; else noCostsByTag">
-            Body
+        <div class="card-body">
+            <canvas #chartTags></canvas>
         </div>
-        <ng-template #noCostsByTag class="card-body">
+        <div class="card-footer" *ngIf="costsByTag == null">
             <p>Dados não encontrados!</p>
-        </ng-template>
+        </div>
     </div>
 </div>

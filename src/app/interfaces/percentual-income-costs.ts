@@ -1,4 +1,4 @@
 export interface PercentualIncomeCosts {
-    percentualIncome: number,
-    percentualCosts: number,
+    percentIncome: number,
+    percentCosts: number,
 }
