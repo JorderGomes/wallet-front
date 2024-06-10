@@ -6,7 +6,6 @@
 }
 
 .card {
-    /* padding: 1rem; */
     font-size: 16px;
 }
 
@@ -15,12 +14,8 @@
     height: auto;
 }
 
-.test {
-    margin: 0 1rem;
-    padding: .5rem;
-}
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
     .content {
         grid-template-columns: 1fr;
     }

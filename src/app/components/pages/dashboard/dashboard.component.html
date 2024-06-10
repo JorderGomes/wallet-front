@@ -4,7 +4,24 @@
             Expensive costs
         </div>
         <div class="card-body" >
-            body
+            <div id="table-container">
+                <table id="transaction-table" class="table">
+                    <thead class="bg-wallet-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let transaction of expensiveCosts">
+                            <th scope="row">{{ transaction.id }}</th>
+                            <td>{{ transaction.description }}</td>
+                            <td>R$ {{ transaction.value }},00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="card-footer" *ngIf="expensiveCosts.length <= 0">
             <p>Dados não encontrados!</p>

@@ -2,7 +2,10 @@ import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular
 import { Transaction } from '../../../interfaces/Transaction';
 import { PercentualIncomeCosts } from '../../../interfaces/percentual-income-costs';
 import { MetricService } from '../../../services/metric/metric.service';
-import { CostsByKey } from '../../../interfaces/costs-by-key';
+
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { Chart } from 'chart.js/auto';
 
 @Component({
@@ -33,7 +36,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMetrics();
+    // this.setChartOptions();
+  }
 
+  ngAfterViewInit(): void {
+    // this.setChartOptions();
+  }
+
+  setChartOptions() {
     const ctxChartMonths = this.chartMonths.nativeElement.getContext('2d');
     this.barChartMonths = new Chart(ctxChartMonths, {
       type: 'bar',
@@ -81,7 +91,6 @@ export class DashboardComponent implements OnInit {
     });
 
     const ctxPieChartPercent = this.pieChartPercent.nativeElement.getContext('2d');
-    console.log(this.percentIncomeCosts);
     this.pieChartPercentual = new Chart(ctxPieChartPercent, {
       type: 'doughnut',
       data: {
@@ -94,57 +103,51 @@ export class DashboardComponent implements OnInit {
         ]
       }
     });
-
   }
 
-  ngAfterViewInit(): void {
-    
-  }
+  // getMetrics() {
+  //   this.metricService.getCostsByTag().subscribe((item) => {
+  //     const tagMap = item.data.reduce((acc, i) => acc.set(i.key, i.value), new Map());
+  //     this.costsByTag = tagMap;
+  //   });
 
-  setChartOptions() {
-    // this.chartOptions = {
-    //   title: {
-    //     text: 'ECharts example'
-    //   },
-    //   tooltip: {},
-    //   xAxis: {
-    //     type: 'category',
-    //     data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
-    //   },
-    //   yAxis: {
-    //     type: 'value'
-    //   },
-    //   series: [
-    //     {
-    //       name: 'Sales',
-    //       type: 'bar',
-    //       data: [5, 20, 36, 10, 10, 20]
-    //     }
-    //   ]
-    // };
-  }
+  //   this.metricService.getCostsByMonth().subscribe((item) => {
+  //     const monthMap = item.data.reduce((acc, i) => acc.set(i.key, i.value), new Map());
+  //     this.costsByMonth = monthMap;
+  //   });
+
+  //   this.metricService.getPercentualIncomeCosts(this.currentMonth).subscribe((item) => {
+  //     this.percentIncomeCosts = item;
+  //   });
+
+  //   this.metricService.getExpensiveCosts(this.currentMonth).subscribe((item) => {
+  //     this.expensiveCosts = item;
+  //   });
+  // }
 
   getMetrics() {
-
-    this.metricService.getCostsByTag().subscribe((item) => {
-      const tagMap = item.data.reduce((acc, i) => acc.set(i.key, i.value), new Map());
-      this.costsByTag = tagMap;
-    });
-
-    this.metricService.getCostsByMonth().subscribe((item) => {
-      const monthMap = item.data.reduce((acc, i) => acc.set(i.key, i.value), new Map());
-      this.costsByMonth = monthMap;
-    });
-
-    this.metricService.getPercentualIncomeCosts(this.currentMonth).subscribe((item) => {
-      this.percentIncomeCosts = item;
-    });
-
-    this.metricService.getExpensiveCosts(this.currentMonth).subscribe((item) => {
-      this.expensiveCosts = item;
-    });
-
+    const costsByTag$ = this.metricService.getCostsByTag().pipe(
+      map(item => item.data.reduce((acc, i) => acc.set(i.key, i.value), new Map()))
+    );
+  
+    const costsByMonth$ = this.metricService.getCostsByMonth().pipe(
+      map(item => item.data.reduce((acc, i) => acc.set(i.key, i.value), new Map()))
+    );
+  
+    const percentIncomeCosts$ = this.metricService.getPercentualIncomeCosts(this.currentMonth);
+    const expensiveCosts$ = this.metricService.getExpensiveCosts(this.currentMonth);
+  
+    forkJoin([costsByTag$, costsByMonth$, percentIncomeCosts$, expensiveCosts$]).subscribe(
+      ([tagMap, monthMap, percentIncomeCosts, expensiveCosts]) => {
+        this.costsByTag = tagMap;
+        this.costsByMonth = monthMap;
+        this.percentIncomeCosts = percentIncomeCosts;
+        this.expensiveCosts = expensiveCosts;
+        this.setChartOptions(); // Chama setOptions apenas após todas as chamadas assíncronas terminarem
+      }
+    );
   }
+  
 
   getCurrentMonth() {
     const now = new Date();
