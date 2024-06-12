@@ -7,6 +7,6 @@
     flex-grow: unset;
 }
 
-.nav-link {
-    /* color: var(--wallet-txt-light-color); */
-}
+/* #close-menu {
+    display: none;
+} */
