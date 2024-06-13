@@ -103,12 +103,19 @@ export class HomeComponent {
   editHandler(currentTransaction: Transaction){
     this.handleShowPopup();
     this.transactionService.setCurrentTransaction(currentTransaction);
-    
   }
 
   handleShowPopup() {
     this.popupService.setShowPopup(true);
-    // console.log(this.popupService.showPopup);
+  }
+
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+
+    this.transactions = this.allTransactions.filter(transaction => {
+      return transaction.description.toLocaleLowerCase().includes(value);
+    });
   }
 
 }

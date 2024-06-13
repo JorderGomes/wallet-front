@@ -32,7 +32,9 @@
     color: var(--wallet-secondary-color);
 }
 
-
+.btn:hover {
+    background-color: #2A7BB1;
+}
 
 @media (max-width:360px){
     html {

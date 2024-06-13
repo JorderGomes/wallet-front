@@ -13,6 +13,16 @@
     <app-card-resume [cssClass]="'txt-wallet-primary'" [title]="'Balanço'" [value]="balanceResume"></app-card-resume>
     <app-card-resume [cssClass]="'txt-wallet-secondary'" [title]="'Renda'" [value]="incomeResume"></app-card-resume>
 </div>
+
+<input 
+    id="search-box" 
+    class="form-control" 
+    type="text" 
+    (input)="search($event)"
+    placeholder="Pesquise por descrição" 
+    aria-label="default input example"
+    >
+
 <div id="table-container">
     <table id="transaction-table" class="table" *ngIf="transactions.length > 0; else noTransactions">
         <thead class="bg-wallet-light">

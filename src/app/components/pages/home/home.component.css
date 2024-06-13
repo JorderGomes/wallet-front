@@ -32,6 +32,12 @@ thead {
     /* Para garantir que o cabeçalho fique acima do conteúdo */
 }
 
+#search-box {
+    margin-bottom: 8px;
+}
+
+
+
 .wallet-column-action {
     gap: 8px;
     display: flex;
