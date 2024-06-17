@@ -1,4 +1,4 @@
 export const environment = {
-    baseApiUrl: "http://localhost:8080",
+    baseApiUrl: "https://registro-financeiro-back.onrender.com",
     baseMockApiUrl: "http://localhost:3000"
 };
