@@ -28,5 +28,38 @@
 thead {
     position: sticky;
     top: 0;
-    z-index: 9; /* Para garantir que o cabeçalho fique acima do conteúdo */
+    z-index: 9;
+    /* Para garantir que o cabeçalho fique acima do conteúdo */
+}
+
+#search-box {
+    margin-bottom: 8px;
+}
+
+
+
+.wallet-column-action {
+    gap: 8px;
+    display: flex;
+    flex-direction: row;
+}
+
+.hide-overflow{
+    max-width: 100px;
+
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+@media (max-width:768px){
+	.wallet-column-flux{
+		display: none;
+	}
+}
+
+@media (max-width:576px){
+	.wallet-column-tag{
+		display: none;
+	}
 }

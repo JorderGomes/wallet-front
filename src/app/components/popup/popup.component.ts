@@ -41,8 +41,6 @@ export class PopupComponent {
   }
 
   setTransactionForm(){
-    console.log(this.currentTransaction);
-
     this.transactionForm = new FormGroup({
       id: new FormControl(this.currentTransaction ? this.currentTransaction.id : '',),
       description: new FormControl(this.currentTransaction ? this.currentTransaction.description : '', [Validators.required]),

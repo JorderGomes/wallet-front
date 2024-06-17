@@ -13,42 +13,50 @@
     <app-card-resume [cssClass]="'txt-wallet-primary'" [title]="'Balanço'" [value]="balanceResume"></app-card-resume>
     <app-card-resume [cssClass]="'txt-wallet-secondary'" [title]="'Renda'" [value]="incomeResume"></app-card-resume>
 </div>
+
+<input 
+    id="search-box" 
+    class="form-control" 
+    type="text" 
+    (input)="search($event)"
+    placeholder="Pesquise por descrição" 
+    aria-label="default input example"
+    >
+
 <div id="table-container">
     <table id="transaction-table" class="table" *ngIf="transactions.length > 0; else noTransactions">
         <thead class="bg-wallet-light">
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Valor</th>
-                <th scope="col">Fluxo</th>
-                <th scope="col">Tag</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Remover</th>
+                <th class="wallet-column-id" scope="col">#</th>
+                <th class="hide-overflow wallet-column-desc" scope="col">Descrição</th>
+                <th class="hide-overflow wallet-column-value" scope="col">Valor</th>
+                <th class="wallet-column-flux" scope="col">Fluxo</th>
+                <th class="wallet-column-tag" scope="col">Tag</th>
+                <th class="wallet-column-action" scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let transaction of transactions">
-                <th scope="row">{{ transaction.id }}</th>
-                <td>{{ transaction.description }}</td>
-                <td>R$ {{ transaction.value }},00</td>
-                <td>{{ transaction.flux }}</td>
-                <td>{{ transaction.tag }}</td>
-                <td>
+                <th class="wallet-column-id"  scope="row">{{ transaction.id }}</th>
+                <td class="hide-overflow wallet-column-desc" >{{ transaction.description }}</td>
+                <td class="hide-overflow wallet-column-value" >R$ {{ transaction.value }},00</td>
+                <td class="wallet-column-flux" >{{ transaction.flux }}</td>
+                <td class="wallet-column-tag" >{{ transaction.tag }}</td>
+                <td class="wallet-column-action">
                     <button 
                     type="button" 
                     class="btn btn-sm btn-secondary"
                     (click)="editHandler(transaction)"
                     >
-                        Editar
+                        <fa-icon [icon]="iconPen"></fa-icon>
                     </button>
-                </td>
-                <td>
+
                     <button 
                     type="button" 
                     class="btn btn-sm btn-danger" 
                     (click)="removeHandler(transaction.id!)"
                     >
-                        Remover
+                        <fa-icon [icon]="iconTrash"></fa-icon>
                     </button>
                 </td>
             </tr>

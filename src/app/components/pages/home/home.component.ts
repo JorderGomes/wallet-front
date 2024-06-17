@@ -5,6 +5,9 @@ import { Transaction } from '../../../interfaces/Transaction';
 import { PopupService } from '../../../services/popup/popup.service';
 import { TransactionService } from '../../../services/transaction/transaction.service';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTrashCan, faPen } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,11 +17,15 @@ export class HomeComponent {
 
   private baseApiUrl: string = environment.baseApiUrl;
   private apiUrl: string = `${this.baseApiUrl}/registers`;
+
   allTransactions: Transaction[] = [];
   transactions: Transaction[] = [];
   incomeResume: string = '';
   outcomeResume: string = '';
   balanceResume: string = '';
+
+  iconTrash = faTrashCan;
+  iconPen = faPen;
 
   constructor(
     public popupService: PopupService,
@@ -96,12 +103,19 @@ export class HomeComponent {
   editHandler(currentTransaction: Transaction){
     this.handleShowPopup();
     this.transactionService.setCurrentTransaction(currentTransaction);
-    
   }
 
   handleShowPopup() {
     this.popupService.setShowPopup(true);
-    // console.log(this.popupService.showPopup);
+  }
+
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+
+    this.transactions = this.allTransactions.filter(transaction => {
+      return transaction.description.toLocaleLowerCase().includes(value);
+    });
   }
 
 }

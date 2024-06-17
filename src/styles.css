@@ -31,3 +31,19 @@
 .txt-wallet-secondary {
     color: var(--wallet-secondary-color);
 }
+
+.btn:hover {
+    background-color: #2A7BB1;
+}
+
+@media (max-width:360px){
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:330px){
+    html {
+        font-size: 10px;
+    }
+}
